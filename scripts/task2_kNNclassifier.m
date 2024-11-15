@@ -1,16 +1,17 @@
 %% Task 2: Build a kNN classifier
 
 % kNN Classifier Function
-function [predicted_labels, error_rate] = task2_kNNclassifier(train_data, train_labels, test_data, k, varargin)
+function [predicted_labels, error_rate] = task2_kNNclassifier(train_data, train_labels, ...
+    test_data, test_labels, k, varargin)
     
     % Validate number of arguments
     if nargin < 4
-        error("NO enough arguments. should be at least 4");
+        error("Not enough arguments. Should be at least 4");
     end
     
-    % check size of train and test dimensions
+    % Check size of train and test dimensions
     if size(train_data, 2) ~= size(test_data, 2)
-        error("Number of columns (features) must match between train and test data.");
+        error("Number of columns must match between train and test data.");
     end
     
     % Validate value of k
