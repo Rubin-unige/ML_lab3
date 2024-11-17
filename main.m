@@ -37,5 +37,19 @@ k_values = [1, 2, 3, 4, 5, 10, 15, 20, 30, 40, 50];
 % Call Task 3 function to test the kNN classifier on MNIST data
 % task3_testClassifier(x_train_MNIST, y_train_MNIST, x_test_MNIST, y_test_MNIST, k_values);
 
-% Call Task 3 function to test the kNN classifier on Wine data
+% Call Task 3 function to test the kNN classifier on wine data
 task3_testClassifier(x_train_Wine, y_train_Wine, x_test_Wine, y_test_Wine, k_values);
+
+
+% Perform Leave-One-Out Cross Validation (LOO-CV) for wine data
+% n = length(y_train_Wine);  % Number of training samples
+% for i = 1:n
+%     % Leave out the i-th sample for testing
+%     x_train_loo = x_train_Wine([1:i-1, i+1:end], :);
+%     y_train_loo = y_train_Wine([1:i-1, i+1:end]);
+%     x_test_loo = x_train_Wine(i, :);  % The i-th sample as test
+%     y_test_loo = y_train_Wine(i);     % The corresponding label
+% 
+%     % Call task3_testClassifier with LOO data
+%     task3_testClassifier(x_train_loo, y_train_loo, x_test_loo, y_test_loo, k_values);
+% end
