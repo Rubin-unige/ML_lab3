@@ -1,16 +1,17 @@
 %% Task 2: Build a kNN classifier
 
 % kNN Classifier Function
+% varargin so optional test labels can be input as well
 function [predicted_labels, error_rate] = task2_kNNclassifier(train_data, train_labels, test_data, k, varargin)
     
     % Validate number of arguments
     if nargin < 4
-        error("NO enough arguments. should be at least 4");
+        error("Not enough arguments. should be at least 4");
     end
     
-    % check size of train and test dimensions
+    % check size of train and test columns
     if size(train_data, 2) ~= size(test_data, 2)
-        error("Number of columns (features) must match between train and test data.");
+        error("Number of columns must be same in test and train data.");
     end
     
     % Validate value of k
@@ -31,6 +32,7 @@ function [predicted_labels, error_rate] = task2_kNNclassifier(train_data, train_
         % Sort distances and get indices of k nearest neighbors
         [~, sorted_indices] = sort(distances);
         nearest_neighbors = train_labels(sorted_indices(1:k));
+        % disp(nearest_neighbors);
         
         % Assign the most frequent label among the neighbors
         predicted_labels(i) = mode(nearest_neighbors);

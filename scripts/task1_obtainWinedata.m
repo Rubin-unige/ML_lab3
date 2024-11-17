@@ -4,7 +4,7 @@
 function [x_train_Wine, y_train_Wine, x_test_Wine, y_test_Wine] = task1_obtainWinedata()
 
     % path to where wine data is located
-    addpath("provide_scripts_data\small_wine_data\")
+    addpath("provided_scripts_data\small_wine_data\")
 
     % Load the wine dataset
     wine_data = load('wine.data');
