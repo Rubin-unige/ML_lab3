@@ -16,17 +16,17 @@ addpath("scripts");
 k = 3; % initial value of k, increase oddly like {5, 7 ,..}
 
 % % Apply kNN classifier to MNIST dataset
-[predicted_MNIST, errorRate_MNIST] = task2_kNNclassifier(x_train_MNIST, y_train_MNIST, x_test_MNIST, k, y_test_MNIST);
-
-% Display results
-disp('Error Rate for MNIST:');
-disp(errorRate_MNIST);
+% [predicted_MNIST, errorRate_MNIST] = task2_kNNclassifier(x_train_MNIST, y_train_MNIST, x_test_MNIST, k, y_test_MNIST);
+% 
+% % Display results
+% disp('Error Rate for MNIST in percentage:');
+% disp(errorRate_MNIST);
 
 % Apply kNN classifier to Wine dataset
 [predicted_Wine, errorRate_Wine] = task2_kNNclassifier(x_train_Wine, y_train_Wine, x_test_Wine, k, y_test_Wine);
 
 % Display results
-disp('Error Rate for Wine:');
+disp('Error Rate for Wine in percentage:');
 disp(errorRate_Wine);
  
 %% Task 3: Test the kNN Classifier

@@ -46,6 +46,7 @@ function [predicted_labels, error_rate] = task2_kNNclassifier(train_data, train_
         end
         num_errors = sum(predicted_labels ~= test_labels);
         error_rate = num_errors / num_test_samples;
+        error_rate = error_rate * 100;
     else
         error_rate = NaN; % No error rate calculated if test_labels not provided
     end
