@@ -1,5 +1,6 @@
 %% Task 3: Test the kNN classifiers
 
+% TODO: confusion matrix and statistics
 function task3_testClassifier(x_train, y_train, x_test, y_test, initial_k)
     % Function to test the kNN classifier for all classes and various k values.
 
@@ -50,6 +51,8 @@ function task3_testClassifier(x_train, y_train, x_test, y_test, initial_k)
         ylabel('Accuracy');
         grid on;
     end
+
+    save_result()
     % Save the figure
     initial_k_file = fullfile('result', 'initial_k_results_plot.png'); 
     saveas(gcf, initial_k_file); % Save figure as PNG
@@ -118,5 +121,9 @@ function task3_testClassifier(x_train, y_train, x_test, y_test, initial_k)
     % Save the figure
     refined_k_file = fullfile('result', 'refined_k_results_plot.png'); 
     saveas(gcf, refined_k_file); % Save figure as PNG
+end
+
+% funtion to save result
+function save_result()
 
 end
