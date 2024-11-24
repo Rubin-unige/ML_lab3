@@ -134,21 +134,27 @@ function compute_and_save_summaries(k_values, precision, recall, f1_score)
     percentile_25_f1 = prctile(f1_score, 25, 1);
     percentile_75_f1 = prctile(f1_score, 75, 1);
 
-    % Create Tables
-    precision_table = table(avg_precision', std_precision', percentile_25_precision', percentile_75_precision', 'VariableNames', {'Average', 'StdDev', '25th Percentile', '75th Percentile'}, 'RowNames', arrayfun(@num2str, k_values, 'UniformOutput', false));
-    recall_table = table(avg_recall', std_recall', percentile_25_recall', percentile_75_recall', 'VariableNames', {'Average', 'StdDev', '25th Percentile', '75th Percentile'}, 'RowNames', arrayfun(@num2str, k_values, 'UniformOutput', false));
-    f1_table = table(avg_f1', std_f1', percentile_25_f1', percentile_75_f1', 'VariableNames', {'Average', 'StdDev', '25th Percentile', '75th Percentile'}, 'RowNames', arrayfun(@num2str, k_values, 'UniformOutput', false));
+% Create Tables with k_values as the first column
+precision_table = table(k_values', avg_precision', std_precision', percentile_25_precision', percentile_75_precision', ...
+    'VariableNames', {'k Value', 'Average', 'StdDev', '25th Percentile', '75th Percentile'});
 
-    % Display Tables
-    disp('Precision Summary:');
-    disp(precision_table);
-    disp('Recall Summary:');
-    disp(recall_table);
-    disp('F1-Score Summary:');
-    disp(f1_table);
+recall_table = table(k_values', avg_recall', std_recall', percentile_25_recall', percentile_75_recall', ...
+    'VariableNames', {'k Value', 'Average', 'StdDev', '25th Percentile', '75th Percentile'});
 
-    % Save the results to CSV
-    writetable(precision_table, 'results/task3_results/precision_summary.csv', 'WriteRowNames', true);
-    writetable(recall_table, 'results/task3_results/recall_summary.csv', 'WriteRowNames', true);
-    writetable(f1_table, 'results/task3_results/f1_score_summary.csv', 'WriteRowNames', true);
+f1_table = table(k_values', avg_f1', std_f1', percentile_25_f1', percentile_75_f1', ...
+    'VariableNames', {'k Value', 'Average', 'StdDev', '25th Percentile', '75th Percentile'});
+
+% Display Tables
+disp('Precision Summary:');
+disp(precision_table);
+disp('Recall Summary:');
+disp(recall_table);
+disp('F1-Score Summary:');
+disp(f1_table);
+
+% Save the results to CSV
+writetable(precision_table, 'results/task3_results/precision_summary.csv', 'WriteRowNames', false);
+writetable(recall_table, 'results/task3_results/recall_summary.csv', 'WriteRowNames', false);
+writetable(f1_table, 'results/task3_results/f1_score_summary.csv', 'WriteRowNames', false);
+
 end
