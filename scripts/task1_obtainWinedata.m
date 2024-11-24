@@ -13,9 +13,9 @@ function [x_train_Wine, y_train_Wine, x_test_Wine, y_test_Wine] = task1_obtainWi
     x_wine_data = wine_data(:, 2:end);  % Features 
     y_wine_data = wine_data(:, 1);      % Class
     
-    % Normalise as suggested in remark
+    % Normalise the extracted feature data by column ( column wise operation is default)
     x_norm = (x_wine_data - min(x_wine_data)) ./ (max(x_wine_data) - min(x_wine_data));
-    
+
     n = length(y_wine_data);  
     
      % Set random seed to shuffle the training and test data
