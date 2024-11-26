@@ -26,7 +26,6 @@ k = 3; % initial value of k
 % disp("Predicted labels and Actual test labels for MNIST dataset:");
 % % Create a table to display actual vs predicted labels
 % results_table_MNIST = table(y_test_MNIST, predicted_MNIST, 'VariableNames', {'Actual_Label', 'Predicted_Label'});
-% % Write the table to a CSV file
 % writetable(results_table_MNIST, 'results/task2_results/MNIST_classification_results.csv');
 % % Save the error rate same file
 % fileID = fopen('results/task2_results/MNIST_classification_results.csv', 'a');
@@ -41,7 +40,6 @@ k = 3; % initial value of k
 disp("Predicted labels and Actual test labels for Wine dataset:");
 % Create a table to display actual vs predicted labels
 results_table_wine = table(y_test_Wine, predicted_Wine, 'VariableNames', {'Actual_Label', 'Predicted_Label'});
-% Write the table to a CSV file
 writetable(results_table_wine, 'results/task2_results/wine_classification_results.csv');
 % Save the error rate same file
 fileID = fopen('results/task2_results/wine_classification_results.csv', 'a');

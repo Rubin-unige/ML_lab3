@@ -23,6 +23,12 @@ function task3_testClassifier(x_train, y_train, x_test, y_test, k_values)
             % Call the kNN classifier from Task 2
             [predicted_labels, ~] = task2_kNNclassifier(x_train, y_train_binary, x_test, k);
 
+            % Create table with binary classification comparing binary test and predicted test
+            % this will help create confusion matrix and evaluate them easily
+            results_table = table(y_test_binary, predicted_labels, 'VariableNames', {'Actual_Label', 'Predicted_Label'});
+            writetable(results_table, sprintf(['results/task3_results/predicted_values_each_k/' ...
+                'wine_classification_results_k%d_class%d.csv'], k, digit));
+
             % Calculate confusion matrix and store it
             cm = calculate_confusion_matrix(predicted_labels, y_test_binary);
             confusion_matrices{digit, i} = cm;
