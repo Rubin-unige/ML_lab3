@@ -2,6 +2,10 @@
 
 addpath("scripts");
 
+% MNIST dataset implementation are commented
+% uncomment them to use them
+% MNIST dataset is too large, be prepared
+
 %% Task 1: Obtain a data set
 
 % Obtain train and test dataset from large MNIST dataset
@@ -48,7 +52,7 @@ fclose(fileID);
 %% Task 3: Test the kNN Classifier
 
 % List of k values to test
-k_values = [1, 2, 3, 4, 5, 10, 15, 20, 30, 40, 50];
+k_values = [1:1:10, 11:2:21, 30, 40, 50];
 
 % Call Task 3 function to test the kNN classifier on MNIST data
 %task3_testClassifier(x_train_MNIST, y_train_MNIST, x_test_MNIST, y_test_MNIST, k_values);
